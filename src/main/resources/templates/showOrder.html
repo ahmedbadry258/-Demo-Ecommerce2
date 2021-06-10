@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Login Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+
+<h1>Product Of Order </h1>
+	<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Price</td>
+						
+				</tr>
+				<tr th:each="product :${products}" th:object="${product}">	
+						<td th:text="*{id}"></td>
+						<td th:text="*{name}"></td>
+						<td th:text="${product.price}"></td>
+				</tr>
+			</table>	
+<a th:href="@{/profile}">Back</a>
+</body>
+</html>

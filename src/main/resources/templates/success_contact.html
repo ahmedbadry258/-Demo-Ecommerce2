@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Login Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<div th:replace="fragments ::header">Header</div>
+
+
+<h3>Success to Contact Us Your Contact Id Is : <label th:text="${id}"></label> </h3>
+ <div th:replace="fragments :: footer">Footer</div>
+</div>
+</body>
+</html>

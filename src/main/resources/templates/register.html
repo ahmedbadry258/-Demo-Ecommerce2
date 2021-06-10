@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Registeration Page</title>
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+  <!-- Content here -->
+  	<img src="/images/store.png" style="margin-left: 20%"/><br>
+  	<div align="center">
+			<h1>Create An Account </h1>
+			<form th:action="@{/adduser}" th:object="${user}" method="post">
+				<table  >
+					<tr>
+						<td>Full Name</td>
+						<td ><input type="text" th:field="*{fullname}"></td>
+					 	<td><p style="color: red" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Full Name</p></td>  
+					</tr>	
+					<tr>
+						<td>Email</td>
+						<td ><input type="text" th:field="*{email}"></td>	
+						<td><p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email</p></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td ><input type="password" th:field="*{password}" ></td>
+						<td><p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p></td>
+					</tr>
+					<tr>
+						<td>Phone Number</td>
+						<td ><input type="text" th:field="*{phone}"></td>
+						<td><p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p></td>
+					</tr>
+					<tr>
+						<td>Birth Date</td>
+						<td ><input type="date" th:field="*{birthDate}"></td>
+						<td><p style="color: red" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></p></td>
+					</tr>
+					
+					<tr>
+					<td></td>
+						<td colspan="2"><input type="submit"></td>
+					</tr>
+				</table>	
+			</form>
+		</div>
+</div>
+</body>
+</html>

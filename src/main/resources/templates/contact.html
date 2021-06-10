@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="windows-1256">
+<title>Contact Us</title>
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+  <!-- Content here -->
+<div th:replace="fragments :: header"></div>
+
+
+<div align="center">
+<h1>Contact Us</h1>
+	<form th:action="@{/successContact}" th:object="${contact}" method="post">
+			<table>
+	 			<tr>
+					<td>Enter Name :</td>
+					<td><input type="text" name="Name" ></td>
+				</tr>		
+				<tr>
+					<td>Enter Email :</td>
+					<td><input type="email" name="Email" ></td>
+				</tr> 
+				<tr>
+					<td>Message :</td>
+					<td><textarea th:field="*{message}"></textarea></td>
+				</tr>  
+				
+				<tr>
+					<td colspan="2"><input type="submit"/></td>
+				</tr>
+			</table>
+	</form>
+</div><br><br>
+<div th:replace="fragments :: footer"></div>
+</div>
+</body>
+</html>

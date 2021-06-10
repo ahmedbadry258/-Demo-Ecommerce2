@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="windows-1256">
+<title>Address Page</title>
+<link rel="icon" href="data:;base64,iVBORwOKGO=" />
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+  <!-- Content here -->
+
+<div th:replace="fragments :: header">Header</div>
+<div sec:authories="isAuthenticated()">
+	<table>
+		<tr>
+			<td>Welcome : </td>
+			<td><b><span sec:authentication="principal.fullName">Fullname</span></b></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>  <b><span sec:authentication="name">Username or Email</span></b></td>
+		</tr>
+		<tr>
+			<td>Role</td>
+			<td><span sec:authentication="principal.authorities">Roles</span></td>
+		</tr>
+	</table>
+</div> 
+ 
+<div >
+<h3>Enter Address</h3>
+		<form th:action="@{/profile}" method="post" th:object="${address}">
+			<table border="1" >
+						
+						<tr>
+								<td>Street</td>
+								<td><input type="text" th:field="*{street}"></td>
+						</tr>
+						<tr>
+								<td>City</td>
+								<td><input type="text" th:field="*{city}"></td>
+						</tr>
+						<tr>
+								<td>Country</td>
+								<td><input type="text" th:field="*{country}"></td>
+						</tr>
+								<tr>
+								<td>Phone</td>
+								<td><input type="text" th:field="*{phone}"></td>
+						</tr>
+						
+						<tr>
+								<td colspan="2"><input type="submit"/></td>
+						</tr>
+			</table>
+		</form>
+</div>
+
+
+		<div align="center" >
+ 			<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Price</td>
+						<td>Remove</td>
+				</tr>
+				<tr th:each="product :${session.cart}" >	
+						<td th:text="${product.id}"></td>
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.price}"></td>
+						<td ><a th:href="@{'/cart/remove/'+${product.id}}">X</a></td>
+				</tr>
+				<tr>
+					<td colspan="2">Total</td>
+					<td th:text="${total}"></td>
+				</tr>
+			</table>	
+		</div>
+		<br><br><br><br>
+	<div th:replace="fragments :: footer">Footer</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="windows-1256">
+<title>Insert title here</title>
+<div th:fragment="bootstrap">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</div>
+</head>
+<body>
+
+<div th:fragment="navbarAdmin">
+	 <h2>Store System Management</h2> 
+		<table border="1" class="table table-dark" >
+				<tr >
+						<td><a th:href="@{/management/product}">Products</a></td>
+						<td><a th:href="@{/management/category}">Category</a></td>
+						<td><a th:href="@{/management/orders}">Orders</a></td>
+						<td><a th:href="@{/management/users}">Users</a></td>
+				</tr>
+		</table></div>
+
+<div th:fragment="navbar">
+		<table border="1" class="table table-dark" >
+				<tr >
+						<td><a th:href="@{/Mobiles}">Mobiles</a></td>
+						<td><a th:href="@{/Laptops}">Laptops</a></td>
+						<td><a th:href="@{/TVs}">TVs</a></td>
+						<td><a th:href="@{/Kitchen}">Kitchen</a></td>
+						<td><a th:href="@{/Food}">Food</a></td>
+						<td><a th:href="@{/Drinks}">Drinks</a></td>
+						<td><a th:href="@{/Books}">Books</a></td>
+						<td><a th:href="@{/Toys}">Toys</a></td>
+						<td><a th:href="@{/Sports}">Sports</a></td>
+						
+				</tr>
+		</table>
+</div>
+<div th:fragment="footer" >
+
+<footer class="bg-dark text-center text-white">
+
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <p>Store Shop Made By Ahmed Badry Copyright &copy;2021 </p>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>
+
+</body>
+</html>

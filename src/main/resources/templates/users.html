@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Template</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <!-- Content here -->
+
+  	<div  th:replace="fragments :: header">Header</div>
+  	<div  th:replace="fragmentsAdmin :: navbarAdmin">NavbarAdmin</div>
+  	
+  	
+	
+			<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td>Full Name</td>
+						<td>Email</td>
+						<td>Phone</td>
+						<td>Role</td>
+						<td>Birth Date</td>
+						<td>Registeration Date</td>
+						<td>Active</td>
+						<td>Action</td>
+				</tr>
+				<tr th:each="user :${users}" th:object="${user}">	
+						<td th:text="*{id}"></td>
+						<td th:text="*{fullname}"></td>
+						<td th:text="*{email}"></td>
+						<td th:text="*{phone}"></td>
+						<td th:text="*{role}"></td>
+						<td th:text="*{birthDate}"></td>
+						<td th:text="*{regiserDate}"></td>
+						<td th:text="*{active}"></td>
+						<td ><a th:href="${edit}">Edit</a>|
+						<a th:href="${delete}">Delete</a></td>
+				</tr>
+			</table>	
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Login Page</title>
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head><title>Login</title>
+</head>
+<body>
+<div class="container">
+		  <!-- Content here -->
+		  	<img src="/images/store.png" style="margin-left: 20%"/><br>
+	 <div align="center">
+					<h1>Login Page</h1>
+			<div th:if="${param.error}">
+				<p style="font:red">invalid username or password</p>
+			</div>
+			<div>
+				<label th:text="${msg}"></label>
+			</div>
+			
+			<form th:action="@{/login}" method="post">
+				<p>
+					<input type="text" name="username" required="required" autofocus="autofocus" placeholder="Username" />
+				</p>
+				<p>
+					<input type="text" name="password" required="required"  placeholder="Password" />
+				</p>
+				<p>
+					<input type="submit" value="Login"  style="width: 200px"/>
+				</p>
+			</form>
+			<form th:action="@{/register}">
+				<input type="submit" value="Create An Account" style="width: 200px">
+			</form>
+			<a th:href="@{/}">Home</a>
+	</div>
+</div>
+</body>
+</html>

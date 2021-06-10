@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Cart</title>
+<link rel="icon" href="data:;base64,iVBORwOKGO=" />
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+<div th:replace="fragments ::header">Header</div>
+<div th:replace="fragments :: navbar">Navbar</div>
+<h1>Cart</h1>
+<div>
+			<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Price</td>
+						<td>Remove</td>
+				</tr>
+				<tr th:each="product :${session.cart}" >	
+						<td th:text="${product.id}"></td>
+						<td th:text="${product.name}"></td>
+						<td th:text="${product.price}"></td>
+						<td ><a th:href="@{'/remove/'+${product.id}}">X</a></td>
+				</tr>
+				<tr>
+					<td colspan="2">Total</td>
+					<td th:text="${total}"></td>
+				</tr>
+			</table>	
+		</div>
+<a th:href="@{/}">Continue Shopping</a>
+<a th:href="@{/payCredit}">Check Out</a>
+<br><br><br><br>
+<div th:replace="fragments :: footer">Footer</div>
+</div>
+</body>
+</html>

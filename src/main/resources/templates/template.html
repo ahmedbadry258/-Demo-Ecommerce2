@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Template</title>
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+
+	<div th:replace="fragments ::header">Headr</div>
+	<div th:replace="fragments :: navbar">Navbar</div>
+	
+	  <!-- Content here -->
+	
+	<div th:replace="fragments :: footer">Footer</div>
+</div>
+</body>
+</html>

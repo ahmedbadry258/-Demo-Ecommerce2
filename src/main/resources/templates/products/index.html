@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="windows-1256">
+<title>Store</title>
+<link rel="icon" href="data:;base64,iVBORwOKGO=" />
+<div th:replace="fragments :: bootstrap">BootStrap</div>
+</head>
+<body>
+<div class="container">
+  <!-- Content here -->
+<div th:replace="fragments ::header">Header</div>
+<div th:replace="fragments :: navbar">Navbar</div>
+
+
+			<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Price</td>
+						<td>Action</td>
+				</tr>
+				<tr th:each="product :${products}" th:object="${product}">	
+						<td th:text="*{id}"></td>
+						<td th:text="*{name}"></td>
+						<td th:text="${product.price}"></td>
+						<td ><a th:href="@{'/cart/'+*{id}}">Buy Now</a></td>
+				</tr>
+			</table>	
+			
+			
+<div th:replace="fragments :: footer">Footer</div>
+</div>
+
+</body>
+</html>

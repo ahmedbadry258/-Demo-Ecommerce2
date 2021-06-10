@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="windows-1256">
+<title>Orders</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <!-- Content here -->
+
+  	<div  th:replace="fragments :: header">Header</div>
+  	<div  th:replace="fragmentsAdmin :: navbarAdmin">NavbarAdmin</div>
+  	
+  	
+	
+	
+			<table border="1" class="table table-striped">
+				<tr>
+						<td>ID</td>
+						<td> Name</td>
+						<td>Total Price</td>
+						<td>Quantity</td>
+						<td>Order Date</td>
+						<td>Customer</td>
+						<td>Details</td>
+						<td>Action</td>
+				</tr>
+				<tr th:each="item :${items}" th:object="${item}">	
+						<td th:text="*{id}"></td>
+						<td th:text="*{name}"></td>
+						<td th:text="*{quantity}"></td>
+						<td th:text="*{total}"></td>
+						<td th:text="*{orderDate}"></td>
+						<td th:text="*{user.email}"></td>
+						<td><a th:href="${details}">Details</a></td>
+						<td ><a th:href="${edit}">Edit</a>|
+						<a th:href="${delete}">Delete</a></td>
+				</tr>
+			</table>	
+	 -->
+
+</div>
+
+</body>
+</html>

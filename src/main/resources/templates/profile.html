@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+			xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="windows-1256">
+<title>My Profile</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<div th:replace="fragments ::header">Header</div>
+<div align="center">
+<h1>User Info</h1>
+<div sec:authories="isAuthenticated()">
+	<table>
+		<tr>
+			<td>Welcome : </td>
+			<td><b><span sec:authentication="principal.fullName">Fullname</span></b></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>  <b><span sec:authentication="name">Username or Email</span></b></td>
+		</tr>
+		<tr>
+			<td>Role</td>
+			<td><span sec:authentication="principal.authorities">Roles</span></td>
+		</tr>
+	</table>
+</div>
+<span>
+<label>Order Number : </label>
+ <label th:text="${orderId}"></label><br>
+</span>
+
+
+<ul style="float: left; list-style-type: square;">
+	<li><a th:href="@{/myOrders}">My Order</a></li>
+	<li><a th:href="@{/}">Edit My Information</a></li>
+	<li><a th:href="@{/}"> Change Password</a></li>
+</ul>
+			
+<br><br>
+<br><br>
+</div>
+<div th:replace="fragments :: footer">Footer</div>
+</div>
+
+</body>
+</html>
